@@ -1,19 +1,18 @@
 from create_sudoku import create_sudoku
-from algorithm.backtracking import backtracking
-from algorithm.constraints import constraint
-import numpy as np
-from time import time
-import json
+import ujson as json
+
+# Creates sudoku's between specified difficulty ranges and writes it to a .json file
+# Difficulty is defined by the number of known cells
+# ex. 17 is hardest 80 is easiest
 
 
-
-for difficulty in range(17,18):
+for difficulty in range(17,81):
     dict = {}
     sudokus = []
     tries = 0
-    while len(dict) < 10000:
+    while len(dict) < 10000: # creates 10000 sudokus per difficulty
         tries = tries + 1
-        sudoku = create_sudoku(difficulty)
+        sudoku = create_sudoku(difficulty) 
         dict[len(dict)+1] = sudoku.tolist()
         sudokus.append(sudoku.tolist())
         print('difficulty:', (difficulty), '| tries:', tries, '| sudokus: ', len(dict))

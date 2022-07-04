@@ -1,11 +1,9 @@
 import numpy as np
 import algorithm.check as check
-from time import time
+from random import randrange
 
 
-time_begin = time()
-
-def backtracking(sudoku: np.array) -> np.array:
+def backtracking(sudoku: np.array,) -> np.array:
   '''
   itterates through every cell of a sudoku
   until a solution is found or the end is reached
@@ -26,3 +24,4 @@ def backtracking(sudoku: np.array) -> np.array:
             sudoku[y][x] = 0
         return
   return sudoku
+
